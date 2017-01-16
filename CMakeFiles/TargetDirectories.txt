@@ -1,0 +1,8 @@
+/home/guille/PCL_proyect/CMakeFiles/bin2pcd.dir
+/home/guille/PCL_proyect/CMakeFiles/cloud_viewer.dir
+/home/guille/PCL_proyect/CMakeFiles/concatenate_clouds.dir
+/home/guille/PCL_proyect/CMakeFiles/matrix_transform.dir
+/home/guille/PCL_proyect/CMakeFiles/pcd_read.dir
+/home/guille/PCL_proyect/CMakeFiles/pcd_write.dir
+/home/guille/PCL_proyect/CMakeFiles/read_all.dir
+/home/guille/PCL_proyect/CMakeFiles/voxel_grid.dir
