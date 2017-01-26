@@ -13,11 +13,11 @@ add_definitions(${PCL_DEFINITIONS})
 add_executable (all_cylinder src/all_cylinder.cpp src/read_transformations.cpp src/read_matrices_pose.cpp src/read_velo_to_cam.cpp)
 target_link_libraries (all_cylinder ${PCL_LIBRARIES})
 
-add_executable (cylinder_extraction_v1 src/cylinder_extraction_v1.cpp src/cylinder_extraction_v1_visualization.cpp src/cylinder_extraction_v1_user_input.cpp src/cylinder_extraction_v1_far_away_points.cpp src/cylinder_extraction_v1_cluster.cpp src/cylinder_extraction_v1_plane_from_cluster.cpp src/cylinder_extraction_v1_cylinder_segmentation.cpp src/cylinder_extraction_v1_voxel_grid.cpp src/read_transformations.cpp src/read_matrices_pose.cpp src/read_velo_to_cam.cpp)
+add_executable (cylinder_extraction_v1 src/Main/src/cylinder_extraction_v1.cpp src/Main/src/cylinder_extraction_v1_visualization.cpp src/Main/src/cylinder_extraction_v1_user_input.cpp src/Main/src/cylinder_extraction_v1_far_away_points.cpp src/Main/src/cylinder_extraction_v1_cluster.cpp src/Main/src/cylinder_extraction_v1_plane_from_cluster.cpp src/Main/src/cylinder_extraction_v1_cylinder_segmentation.cpp src/Main/src/cylinder_extraction_v1_voxel_grid.cpp src/Main/src/read_transformations.cpp src/Main/src/read_matrices_pose.cpp src/Main/src/read_velo_to_cam.cpp)
 target_link_libraries (cylinder_extraction_v1 ${PCL_LIBRARIES})
 
-add_executable (MAIN src/MAIN.cpp src/Main/src/cylinder_extraction_v1_visualization.cpp src/Main/src/cylinder_extraction_v1_user_input.cpp src/Main/src/cylinder_extraction_v1_far_away_points.cpp src/Main/src/cylinder_extraction_v1_cluster.cpp src/Main/src/cylinder_extraction_v1_plane_from_cluster.cpp src/Main/src/cylinder_extraction_v1_cylinder_segmentation.cpp src/Main/src/cylinder_extraction_v1_voxel_grid.cpp src/Main/src/read_transformations.cpp src/Main/src/read_matrices_pose.cpp src/Main/src/read_velo_to_cam.cpp)
-target_link_libraries (MAIN ${PCL_LIBRARIES})
+add_executable (Main src/Main/src/Main.cpp src/Main/src/cylinder_extraction_v1_visualization.cpp src/Main/src/cylinder_extraction_v1_user_input.cpp src/Main/src/cylinder_extraction_v1_far_away_points.cpp src/Main/src/cylinder_extraction_v1_cluster.cpp src/Main/src/cylinder_extraction_v1_plane_from_cluster.cpp src/Main/src/cylinder_extraction_v1_cylinder_segmentation.cpp src/Main/src/cylinder_extraction_v1_voxel_grid.cpp src/Main/src/read_transformations.cpp src/Main/src/read_matrices_pose.cpp src/Main/src/read_velo_to_cam.cpp)
+target_link_libraries (Main ${PCL_LIBRARIES})
 
 add_executable (pcd_write src/pcd_write.cpp)
 target_link_libraries (pcd_write ${PCL_LIBRARIES})
