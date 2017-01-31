@@ -3,7 +3,7 @@
 #include <pcl/ModelCoefficients.h>
 #include <pcl/point_types.h>
 
-pcl::visualization::PCLVisualizer cylinder_extraction_v1_visualization (pcl::visualization::PCLVisualizer viewer, 
+pcl::visualization::PCLVisualizer visualize (pcl::visualization::PCLVisualizer viewer, 
                                                             std::map<int, pcl::PointCloud<pcl::PointXYZ>::Ptr > &newClouds,
                                                             std::string cloud_initial_name,
                                                             bool OPT_RED,

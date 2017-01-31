@@ -1,8 +1,8 @@
-#include "cylinder_extraction_v1_voxel_grid.h"
+#include "/home/vignesh/pcl-proyect/src/Main/header/extracting_voxel_grid.h"
 #include <pcl/ModelCoefficients.h>
 #include <pcl/point_types.h>
 
-pcl::PointCloud<pcl::PointXYZ>::Ptr cylinder_extraction_v1_voxel_grid (pcl::PointCloud<pcl::PointXYZ>::Ptr cloud, bool SWITH_VOXEL_GRID)
+pcl::PointCloud<pcl::PointXYZ>::Ptr extracting_voxel_grid (pcl::PointCloud<pcl::PointXYZ>::Ptr cloud, bool SWITH_VOXEL_GRID)
 {
   // Create the filtering object: downsample the dataset using a leaf size of 1cm
   pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_filtered (new pcl::PointCloud<pcl::PointXYZ>);

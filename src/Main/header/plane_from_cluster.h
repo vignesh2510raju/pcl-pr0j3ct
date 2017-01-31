@@ -25,5 +25,5 @@
 #include <Eigen/Dense>
 #include <vector>
 
-std::map<int, pcl::PointCloud<pcl::PointXYZ>::Ptr > cylinder_extraction_v1_cylinder_segmentation (std::map<int, pcl::PointCloud<pcl::PointXYZ>::Ptr > clusters, 
-                                                                                                float nd_weight, float max_radius, int min_cylinder_size, int counter, int fi);
+std::map<int, pcl::PointCloud<pcl::PointXYZ>::Ptr > plane_from_cluster (std::map<int, pcl::PointCloud<pcl::PointXYZ>::Ptr > clusters, 
+																								int min_cluster_size, int min_plane_size, float min_density);

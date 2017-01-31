@@ -1,7 +1,7 @@
 #include <pcl/ModelCoefficients.h>
 #include <pcl/point_types.h>
 #include <pcl/io/pcd_io.h>
-#include "cylinder_extraction_v1_user_input.h"
+#include "/home/vignesh/pcl-proyect/src/Main/header/user_input.h"
 
 namespace patch
 {
@@ -15,7 +15,7 @@ namespace patch
 
 using namespace std;
 
-int cylinder_extraction_v1_user_input(bool options_flag, 
+int user_input(bool options_flag, 
                   int c,
                   std::string filename, 
                   float max_radius, float nd_weight,float min_cluster_distance,float min_density,float xlim,float ylim,float zlim, 

@@ -18,4 +18,4 @@
 #include <pcl/common/distances.h>
 #include <pcl/common/common_headers.h>
 
-pcl::PointCloud<pcl::PointXYZ>::Ptr cylinder_extraction_v1_voxel_grid (pcl::PointCloud<pcl::PointXYZ>::Ptr cloud, bool SWITH_VOXEL_GRID);
+pcl::PointCloud<pcl::PointXYZ>::Ptr extracting_voxel_grid (pcl::PointCloud<pcl::PointXYZ>::Ptr cloud, bool SWITH_VOXEL_GRID);

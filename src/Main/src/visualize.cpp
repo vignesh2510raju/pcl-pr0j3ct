@@ -3,7 +3,7 @@
 #include <pcl/ModelCoefficients.h>
 #include <pcl/point_types.h>
 #include <pcl/io/pcd_io.h>
-#include "cylinder_extraction_v1_visualization.h"
+#include "/home/vignesh/pcl-proyect/src/Main/header/visualize.h"
 
 namespace patch
 {
@@ -15,7 +15,7 @@ namespace patch
     }
 }
 
-pcl::visualization::PCLVisualizer cylinder_extraction_v1_visualization (pcl::visualization::PCLVisualizer viewer, 
+pcl::visualization::PCLVisualizer visualize (pcl::visualization::PCLVisualizer viewer, 
                                                             std::map<int, pcl::PointCloud<pcl::PointXYZ>::Ptr > &newClouds,
                                                             std::string cloud_initial_name,
                                                             bool OPT_RED,

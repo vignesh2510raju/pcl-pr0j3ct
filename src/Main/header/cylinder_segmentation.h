@@ -17,5 +17,13 @@
 #include <pcl/common/common.h>
 #include <pcl/common/distances.h>
 #include <pcl/common/common_headers.h>
+#include <iomanip>
+#include <sstream>
+#include <fstream>
+#include <iostream>
+#include <map>
+#include <Eigen/Dense>
+#include <vector>
 
-pcl::PointCloud<pcl::PointXYZ>::Ptr cylinder_extraction_v1_voxel_grid (pcl::PointCloud<pcl::PointXYZ>::Ptr cloud, bool SWITH_VOXEL_GRID);
+std::map<int, pcl::PointCloud<pcl::PointXYZ>::Ptr > cylinder_segmentation (std::map<int, pcl::PointCloud<pcl::PointXYZ>::Ptr > clusters, 
+                                                                                                float nd_weight, float max_radius, int min_cylinder_size, int counter, int fi);

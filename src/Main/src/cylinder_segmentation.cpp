@@ -24,9 +24,9 @@
 #include <map>
 #include <Eigen/Dense>
 #include <vector>
-#include "cylinder_extraction_v1_cylinder_segmentation.h"
+#include "/home/vignesh/pcl-proyect/src/Main/header/cylinder_segmentation.h"
 
-std::map<int, pcl::PointCloud<pcl::PointXYZ>::Ptr > cylinder_extraction_v1_cylinder_segmentation (std::map<int, pcl::PointCloud<pcl::PointXYZ>::Ptr > clusters, 
+std::map<int, pcl::PointCloud<pcl::PointXYZ>::Ptr > cylinder_segmentation (std::map<int, pcl::PointCloud<pcl::PointXYZ>::Ptr > clusters, 
                                                                                                 float nd_weight, float max_radius, int min_cylinder_size, int counter, int fi)
 {
 

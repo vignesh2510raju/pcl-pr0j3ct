@@ -24,16 +24,16 @@
 #include <map>
 #include <Eigen/Dense>
 #include <vector>
-#include "/src/Main/header/read_matrices_pose.h"
-#include "/src/Main/header/read_velo_to_cam.h"
-#include "/src/Main/header/read_transformations.h"
-#include "/src/Main/header/cylinder_extraction_v1_visualization.h"
-#include "/src/Main/header/cylinder_extraction_v1_user_input.h"
-#include "/src/Main/header/cylinder_extraction_v1_far_away_points.h"
-#include "/src/Main/header/cylinder_extraction_v1_voxel_grid.h"
-#include "/src/Main/header/cylinder_extraction_v1_cluster.h"
-#include "/src/Main/header/cylinder_extraction_v1_plane_from_cluster.h"
-#include "/src/Main/header/cylinder_extraction_v1_cylinder_segmentation.h"
+#include "/home/vignesh/pcl-proyect/src/Main/header/read_matrices_pose.h"
+#include "/home/vignesh/pcl-proyect/src/Main/header/read_velo_to_cam.h"
+#include "/home/vignesh/pcl-proyect/src/Main/header/read_transformations.h"
+#include "/home/vignesh/pcl-proyect/src/Main/header/visualize.h"
+#include "/home/vignesh/pcl-proyect/src/Main/header/user_input.h"
+#include "/home/vignesh/pcl-proyect/src/Main/header/extracting_far_away_points.h"
+#include "/home/vignesh/pcl-proyect/src/Main/header/extracting_voxel_grid.h"
+#include "/home/vignesh/pcl-proyect/src/Main/header/cluster_extraction.h"
+#include "/home/vignesh/pcl-proyect/src/Main/header/plane_from_cluster.h"
+#include "/home/vignesh/pcl-proyect/src/Main/header/cylinder_segmentation.h"
 
 namespace patch
 {
@@ -92,11 +92,11 @@ main (int argc, char** argv)
   //std::cout << "PointCloud before filtering has: " << cloud->points.size () << " data points." << std::endl; //*
 
   // Eliminate far-away points
-  cloud = cylinder_extraction_v1_far_away_points(cloud, xlim, ylim, zlim);
+  cloud = extracting_far_away_points(cloud, xlim, ylim, zlim);
 
   // Create the filtering object: downsample the dataset using a leaf size of 0.75cm
   pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_filtered (new pcl::PointCloud<pcl::PointXYZ>);
-  cloud_filtered = cylinder_extraction_v1_voxel_grid(cloud, SWITH_VOXEL_GRID);
+  cloud_filtered = extracting_voxel_grid(cloud, SWITH_VOXEL_GRID);
 
   // Creating the KdTree object for the search method of the extraction of clusters
   pcl::search::KdTree<pcl::PointXYZ>::Ptr tree (new pcl::search::KdTree<pcl::PointXYZ>);
@@ -104,14 +104,14 @@ main (int argc, char** argv)
 
   // Clustering 
   std::map<int, pcl::PointCloud<pcl::PointXYZ>::Ptr > clusters;
-  clusters = cylinder_extraction_v1_cluster (cloud_filtered, min_cluster_distance, min_cluster_size, SWITH_WRITE_CLUSTERS);
+  clusters = cluster_extraction (cloud_filtered, min_cluster_distance, min_cluster_size, SWITH_WRITE_CLUSTERS);
 
   // Extract Planes from clusters
-  clusters = cylinder_extraction_v1_plane_from_cluster(clusters, min_cluster_size, min_plane_size, min_density);
+  clusters = plane_from_cluster(clusters, min_cluster_size, min_plane_size, min_density);
 
   // Cylinder Segmentation 
   std::map<int, pcl::PointCloud<pcl::PointXYZ>::Ptr > cylinders;
-  cylinders = cylinder_extraction_v1_cylinder_segmentation(clusters, nd_weight, max_radius, min_cylinder_size, counter, fi);
+  cylinders = cylinder_segmentation(clusters, nd_weight, max_radius, min_cylinder_size, counter, fi);
 
   // Visualization
   pcl::visualization::PCLVisualizer viewer("PCL Viewer");
@@ -119,7 +119,7 @@ main (int argc, char** argv)
   //viewer.setFullScreen(true); 
   pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> white_color (cloud, 255, 255, 255);
   viewer.addPointCloud <pcl::PointXYZ>(cloud_filtered, white_color, "cloud");
-  viewer = cylinder_extraction_v1_visualization(viewer, cylinders, "cylinders", true, true);
+  viewer = visualize(viewer, cylinders, "cylinders", true, true);
 
   // Run the viewer
   //while (!viewer.wasStopped ())
