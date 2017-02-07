@@ -25,5 +25,4 @@
 #include <Eigen/Dense>
 #include <vector>
 
-std::map<int, pcl::PointCloud<pcl::PointXYZ>::Ptr > cylinder_segmentation (std::map<int, pcl::PointCloud<pcl::PointXYZ>::Ptr > clusters, 
-																			float nd_weight, float max_radius, int min_cylinder_size, int counter, int fi);
+std::map<int, pcl::PointCloud<pcl::PointXYZ>::Ptr > store_values_in_vector_of_maps ();

@@ -1,6 +1,6 @@
 #include <pcl/ModelCoefficients.h>
 #include <pcl/point_types.h>
-#include "/home/vignesh/pcl-proyect/src/Main/header/extracting_far_away_points.h"
+#include "../header/extracting_far_away_points.h"
 
 pcl::PointCloud<pcl::PointXYZ>::Ptr extracting_far_away_points (pcl::PointCloud<pcl::PointXYZ>::Ptr cloud, int xlim, int ylim, int zlim)
 { 

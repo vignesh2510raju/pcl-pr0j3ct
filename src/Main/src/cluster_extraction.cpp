@@ -24,7 +24,7 @@
 #include <map>
 #include <Eigen/Dense>
 #include <vector>
-#include "/home/vignesh/pcl-proyect/src/Main/header/cluster_extraction.h"
+#include "../header/cluster_extraction.h"
 
 std::map<int, pcl::PointCloud<pcl::PointXYZ>::Ptr > cluster_extraction (pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_filtered, float min_cluster_distance, int min_cluster_size, 
                                                                                     bool SWITH_WRITE_CLUSTERS)

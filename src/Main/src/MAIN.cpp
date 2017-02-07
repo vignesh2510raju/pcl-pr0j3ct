@@ -24,16 +24,18 @@
 #include <map>
 #include <Eigen/Dense>
 #include <vector>
-#include "/home/vignesh/pcl-proyect/src/Main/header/read_matrices_pose.h"
-#include "/home/vignesh/pcl-proyect/src/Main/header/read_velo_to_cam.h"
-#include "/home/vignesh/pcl-proyect/src/Main/header/read_transformations.h"
-#include "/home/vignesh/pcl-proyect/src/Main/header/visualize.h"
-#include "/home/vignesh/pcl-proyect/src/Main/header/user_input.h"
-#include "/home/vignesh/pcl-proyect/src/Main/header/extracting_far_away_points.h"
-#include "/home/vignesh/pcl-proyect/src/Main/header/extracting_voxel_grid.h"
-#include "/home/vignesh/pcl-proyect/src/Main/header/cluster_extraction.h"
-#include "/home/vignesh/pcl-proyect/src/Main/header/plane_from_cluster.h"
-#include "/home/vignesh/pcl-proyect/src/Main/header/cylinder_segmentation.h"
+#include <pwd.h>
+#include "../header/read_matrices_pose.h"
+#include "../header/read_velo_to_cam.h"
+#include "../header/read_transformations.h"
+#include "../header/visualize.h"
+#include "../header/user_input.h"
+#include "../header/extracting_far_away_points.h"
+#include "../header/extracting_voxel_grid.h"
+#include "../header/cluster_extraction.h"
+#include "../header/plane_from_cluster.h"
+#include "../header/cylinder_segmentation.h"
+#include "../header/store_values_in_vector_of_maps.h"
 
 namespace patch
 {
@@ -45,11 +47,17 @@ namespace patch
     }
 }
 
-int 
-main (int argc, char** argv)
+int main (int argc, char** argv)
 {
   
-  int counter= 3; //Counter for number of PCD files that need to be executed
+  int counter= 15; //Counter for number of PCD files that need to be executed
+
+
+  float number_of_cylinders, number_of_matched_lm , number_of_expected_lm , number_of_readings;
+
+  std::map< int , std::vector<float> > mapping_landmarks;
+  std::map< int , std::vector<float> > mapping_coord_landmarks;
+  std::vector<float> storeco;
 
   // User input
   int j, min_cluster_size, min_plane_size, min_cylinder_size; 
@@ -61,9 +69,9 @@ main (int argc, char** argv)
   nd_weight= 0.1f;              
   min_cluster_size= 50;         
   min_plane_size= 250;           
-  min_cluster_distance= 0.1;    
+  min_cluster_distance= 0.15;    
   min_density= 400;             
-  min_cylinder_size= 30;        
+  min_cylinder_size= 25;        
   xlim= 14;                     
   ylim= 14;                     
   zlim= 0.5;
@@ -75,11 +83,11 @@ main (int argc, char** argv)
   // To get the pose
   std::vector<Eigen::Matrix4d> T;
   T = read_transformations();  
-
+  
  for (int fi= 0; fi <= counter; ++fi)
  {
-  
-  std::string filename2; 
+ 
+   std::string filename2; 
   std::stringstream sa;
   sa << setw(6) << setfill('0') << fi;
   filename2= sa.str();
@@ -123,9 +131,9 @@ main (int argc, char** argv)
 
   // Run the viewer
   //while (!viewer.wasStopped ())
- // {
+  // {
      viewer.spinOnce (0.01);
- // }
+  // }
  }  
   return (0);
 }

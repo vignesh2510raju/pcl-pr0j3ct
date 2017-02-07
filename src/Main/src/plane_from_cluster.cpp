@@ -24,7 +24,7 @@
 #include <map>
 #include <Eigen/Dense>
 #include <vector>
-#include "/home/vignesh/pcl-proyect/src/Main/header/plane_from_cluster.h"
+#include "../header/plane_from_cluster.h"
 
 std::map<int, pcl::PointCloud<pcl::PointXYZ>::Ptr > plane_from_cluster (std::map<int, pcl::PointCloud<pcl::PointXYZ>::Ptr > clusters, 
                                                                                                 int min_cluster_size, int min_plane_size, float min_density)

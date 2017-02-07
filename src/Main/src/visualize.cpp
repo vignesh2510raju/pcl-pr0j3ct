@@ -3,7 +3,7 @@
 #include <pcl/ModelCoefficients.h>
 #include <pcl/point_types.h>
 #include <pcl/io/pcd_io.h>
-#include "/home/vignesh/pcl-proyect/src/Main/header/visualize.h"
+#include "../header/visualize.h"
 
 namespace patch
 {

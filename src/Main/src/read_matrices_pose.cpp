@@ -8,7 +8,8 @@
 #include <fstream>
 #include <string>
 #include <Eigen/Dense>
-#include "/home/vignesh/pcl-proyect/src/Main/header/read_matrices_pose.h"
+#include <pwd.h>
+#include "../header/read_matrices_pose.h"
 
 using namespace std;
 
