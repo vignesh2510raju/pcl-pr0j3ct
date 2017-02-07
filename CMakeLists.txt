@@ -10,12 +10,6 @@ add_definitions(${PCL_DEFINITIONS})
 
 ## catkin_make -DCMAKE_BUILD_TYPE=Debug
 
-<<<<<<< HEAD
-=======
-add_executable (all_cylinder src/all_cylinder.cpp src/read_transformations.cpp src/read_matrices_pose.cpp src/read_velo_to_cam.cpp)
-target_link_libraries (all_cylinder ${PCL_LIBRARIES})
-
->>>>>>> origin/master
 add_executable (main src/Main/src/main.cpp src/Main/src/visualize.cpp src/Main/src/user_input.cpp src/Main/src/extracting_far_away_points.cpp src/Main/src/cluster_extraction.cpp src/Main/src/plane_from_cluster.cpp src/Main/src/cylinder_segmentation.cpp src/Main/src/extracting_voxel_grid.cpp src/Main/src/read_transformations.cpp src/Main/src/read_matrices_pose.cpp src/Main/src/read_velo_to_cam.cpp)
 target_link_libraries (main ${PCL_LIBRARIES})
 
@@ -51,9 +45,6 @@ target_link_libraries (narf_keypoint_extraction ${PCL_LIBRARIES})
 
 add_executable (normal_estimation src/normal_estimation.cpp)
 target_link_libraries (normal_estimation ${PCL_LIBRARIES})
-
-add_executable (concatenate_clouds src/concatenate_clouds.cpp)
-target_link_libraries (concatenate_clouds ${PCL_LIBRARIES})
 
 add_executable (voxel_grid src/voxel_grid.cpp)
 target_link_libraries (voxel_grid ${PCL_LIBRARIES})
