@@ -31,9 +31,6 @@ target_link_libraries (random_sample_consensus ${PCL_LIBRARIES})
 add_executable (cylinder_segmentation src/cylinder_segmentation.cpp)
 target_link_libraries (cylinder_segmentation ${PCL_LIBRARIES})
 
-add_executable (conditional_euclidean_clustering src/conditional_euclidean_clustering.cpp)
-target_link_libraries (conditional_euclidean_clustering ${PCL_LIBRARIES})
-
 add_executable (planar_segmentation src/planar_segmentation.cpp)
 target_link_libraries (planar_segmentation ${PCL_LIBRARIES})
 
