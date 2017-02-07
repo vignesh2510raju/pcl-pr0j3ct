@@ -96,7 +96,7 @@ int main (int argc, char** argv)
   pcl::PCDReader reader;
   pcl::PointCloud<pcl::PointXYZ>::Ptr cloud (new pcl::PointCloud<pcl::PointXYZ>), cloud_f (new pcl::PointCloud<pcl::PointXYZ>);
   std::cout << "File currently being used :"<< filename2 << ".pcd" << endl;
-  reader.read ("../pcl_files/" + filename2 + ".pcd", *cloud);
+  reader.read ("../Data/pcd-files/Test/" + filename2 + ".pcd", *cloud);
   //std::cout << "PointCloud before filtering has: " << cloud->points.size () << " data points." << std::endl; //*
 
   // Eliminate far-away points
